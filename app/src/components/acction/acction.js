@@ -15,7 +15,7 @@ class Acction extends Component{
 	render(){
 		return (
 			<div className="action_cnt">
-				<h1 className={classnames({hide:this.state.s})}>我总想干点什么</h1>
+				<h1 className={classnames({hide:this.state.s})}>日期</h1>
 				<button onClick={this.changestate.bind(this)}></button>
 			</div>
 		)

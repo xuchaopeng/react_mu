@@ -1,7 +1,10 @@
 import React,{Component} from 'react'; 
 import Acction from './components/acction/Acction.js';
 import Calendar from './components/calendar/calendar.js';
+import Release from './components/release/release.js';
+import Shop from './components/shop/shop.js';
 import imgstr from './images/hali_07.png';
+
 
 class App extends Component{
 	constructor(){
@@ -12,12 +15,11 @@ class App extends Component{
 	}
 	render(){
 		return (
-			<div>
-				<h3>这是Acction</h3>
+			<div style={{width:"1240px",height:"auto",margin:'10px auto'}}>
 				<Acction />
-				<h3>这是日你么么历组件</h3>
 				<Calendar />
-				<img src={imgstr} />
+				<Release />
+				<Shop />
 			</div>
 		)
 	}
