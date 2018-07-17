@@ -1,15 +1,12 @@
 var path = require('path');
 var webpack = require('webpack');
-var HtmlWebPackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-	mode:'development',
 	entry:'./app/src/main.js',
 	output:{
-		path: path.resolve(__dirname,'./app/dist'),
-		filename: "bundle.js",
-		publicPath:"xuni"
+		path: path.resolve(__dirname,'./app/dist'), //输出位置
+		filename: "bundle.js", //输入文件
+		publicPath:"xuni" //指定资源引用的目录
 	},
 	module:{
 		rules:[
@@ -34,7 +31,14 @@ module.exports = {
 				exclude:[
 					path.resolve(__dirname,'node-modules')
 				],
-				use:['style-loader','css-loader','less-loader']
+				use:['style-loader','css-loader',{
+				    loader: 'postcss-loader',
+				    options: {
+				        config: {
+				            path: './' //postcss.config.js文件所在的目录
+				        }
+				    }
+				},'less-loader']
 			},
 			{
 				test:/\.(sass|scss)$/,
@@ -46,6 +50,14 @@ module.exports = {
 				],
 				use:['style-loader','css-loader','sass-loader']
 			},
+			{ 
+				test: /\.jpg$/, 
+				loader: "file-loader" 
+			},
+      		{ 
+      			test: /\.png$/, 
+      			loader: "url-loader?mimetype=image/png" 
+      		},
 			{
 				test:/\.html$/,
 				include:[
@@ -63,13 +75,15 @@ module.exports = {
 			}
 		]
 	},
+    devServer: {
+        contentBase: './app', //指定服务器的目录
+        port: 8080   //指定端口
+    },
 	plugins: [
-	    new ExtractTextPlugin('[name].css'),
-        new webpack.optimize.SplitChunksPlugin({
-        	chunks: "all",
-            name: true
-        }),
-        new UglifyJSPlugin()
+		new HtmlWebpackPlugin({
+			title:'React_moves', //html标题
+			filename:'index.html' //输出html文件名
+		})
 	],
 	watch:true
 }
