@@ -60,7 +60,7 @@ class Shop extends Component{
 						}
 					</tbody>
 				</table>
-				<h1>总价格：{this.state.carts.reduce((a,b)=>a+b.price*b.number,0)}</h1>
+				<h4>总价格：{this.state.carts.reduce((a,b)=>a+b.price*b.number,0)}</h4>
 			</div>
 		)
 	}

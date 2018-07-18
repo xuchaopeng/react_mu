@@ -6,8 +6,6 @@ class Calendar extends Component{
 	constructor(){
 		super()
 	}
-	
-
 	render(){
 		const cn = classnames({
 			calendar : true,
