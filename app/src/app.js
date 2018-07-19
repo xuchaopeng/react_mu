@@ -5,7 +5,7 @@ import Release from './components/release/release.js';
 import Shop from './components/shop/shop.js';
 import CityInfo from './components/cityInfo/cityInfo.js';
 import Todo from './components/todo/index.js';
-import imgstr from './images/hali_07.png';
+import Redux from './components/redux/index.js';
 
 
 class App extends Component{
@@ -23,6 +23,7 @@ class App extends Component{
 				<Shop />
 				<CityInfo />
 				<Todo />
+				<Redux />
 			</div>
 		)
 	}
