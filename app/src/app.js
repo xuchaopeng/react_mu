@@ -1,13 +1,10 @@
 import React,{Component} from 'react'; 
-import Acction from './components/acction/Acction.js';
+import {connect} from 'react-redux';
 import Calendar from './components/calendar/calendar.js';
 import Release from './components/release/release.js';
 import Shop from './components/shop/shop.js';
 import CityInfo from './components/cityInfo/cityInfo.js';
 import Todo from './components/todo/index.js';
-import imgstr from './images/hali_07.png';
-
-
 class App extends Component{
 	constructor(){
 		super()
@@ -18,6 +15,7 @@ class App extends Component{
 	render(){
 		return (
 			<div style={{width:"1240px",height:"auto",margin:'10px auto'}}>
+			 	<h3>这是最大的组件App，在这里你能管理很多状态！haha<button style={{width:'50px',height:'30px'}}>按我</button></h3>
 				<Calendar />
 				<Release />
 				<Shop />
@@ -27,5 +25,14 @@ class App extends Component{
 		)
 	}
 } 
-
+export default connect(
+	(state) => ({
+		v : state.v
+	}),
+	(dispatch) => ({
+		add(){
+			dispatch({"type" : "ADD"})
+		}
+	})
+)(App);
 export default App;
