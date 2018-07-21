@@ -16,6 +16,7 @@ class App extends Component{
 		return (
 			<div style={{width:"1240px",height:"auto",margin:'10px auto'}}>
 			 	<h3>这是最大的组件App，在这里你能管理很多状态！haha<button style={{width:'50px',height:'30px'}}>按我</button></h3>
+			 	<p>{this.props.v}</p>
 				<Calendar />
 				<Release />
 				<Shop />
@@ -27,12 +28,11 @@ class App extends Component{
 } 
 export default connect(
 	(state) => ({
-		v : state.v
+		v : state.counterReducer.v
 	}),
 	(dispatch) => ({
 		add(){
-			dispatch({"type" : "ADD"})
+			dispatch({"type" : "APP"})
 		}
 	})
 )(App);
-export default App;

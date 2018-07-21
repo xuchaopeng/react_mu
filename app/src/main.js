@@ -5,10 +5,9 @@ import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 
 import App from './app.js';
-import reducer from './reducer';
+import reducer from './reducers/index.js';
 
 const store = createStore(reducer,applyMiddleware(logger));
-
 
 render(
 	<Provider store={store}>

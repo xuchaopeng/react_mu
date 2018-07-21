@@ -1,9 +1,9 @@
 export default (state = {"v":100},action) => {
-	if(action.type == 'ADD'){
+	if(action.type == 'APP'){
 		return {
 			"v" : state.v + action.n
 		}
-	}else if(action.type == 'MIN'){
+	}else if(action.type == 'SHOP'){
 		return {
 			"v" : state.v + 1
 		}
