@@ -12,3 +12,7 @@ export const minustodo = (id) => ({
 	type :'MINUSTODO',
 	id
 })
+
+export const total = () => ({
+	type : 'TOTAL'
+})

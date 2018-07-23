@@ -8,7 +8,7 @@ import * as todo from '../../actions/shop.js';
 import "./shop.less";
 class Shop extends Component{
 	constructor(){
-		super()
+		super();
 	}
 	render(){
 		return (
@@ -38,11 +38,17 @@ class Shop extends Component{
 		)
 	}
 }
+
+
 export default connect(
-	(state) => ({
-		carts : state.Shop.carts
-	}),
-	(dispath) => ({
-		todo : bindActionCreators(todo,dispath)
-	})
+	(state) => {
+		return {
+			carts : state.Shop.carts
+		}
+	},
+	(dispath) => {
+		return ({
+			todo : bindActionCreators(todo,dispath)
+		})
+	}
 )(Shop) ;
